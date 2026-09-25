@@ -46,14 +46,12 @@ app.get('/', async function (request, response) {
 })
 
 app.get('/api', async function (request, response) {
-   // const { answer, image } = await getAnswerImage();
-   // response.send(({ answer, image }))
-
    response.send(await getAnswerImage())
 })
 
+// won't be used in production - nginx will serve static files
 app.use('/images', express.static('./images'))
 
-app.listen(3000, function () {
-  console.log('Server listening on port 3000')
+app.listen(3034, function () {
+  console.log('Server listening on port 3034')
 })
